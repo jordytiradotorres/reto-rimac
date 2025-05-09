@@ -1,0 +1,35 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/utilities/mixins" as *;
+
+.footer {
+  @include flex-column;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $grey-100;
+  text-align: center;
+  padding: 2rem 0;
+  color: $grey-0;
+  font-size: 0.75rem;
+  line-height: 20px;
+  margin-top: auto;
+
+  @include respond-to(tablet) {
+    @include flex-between;
+    flex-direction: row;
+    padding: 2rem 10rem;
+  }
+
+  &__seperator {
+    width: 90%;
+    height: 1px;
+    background-color: $grey-80;
+    margin: 1.5rem 0;
+
+    @include respond-to(tablet) {
+      display: none;
+    }
+  }
+}
