@@ -1,9 +1,10 @@
 import { Footer } from "../../components/Footer.tsx/Footer";
+import { Header } from "../../components/Header/Header";
 
 export const Home = () => {
   return (
     <div>
-      <header>header</header>
+      <Header />
       <main>
         <section>imagen</section>
         <section>form</section>

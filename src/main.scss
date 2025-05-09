@@ -6,4 +6,11 @@ body {
   @include flex-column;
   min-height: 100vh;
   font-family: "Br Sonoma", sans-serif;
+  padding: 0 1.5rem;
+  max-width: 1360px;
+  margin: 0 auto;
+
+  @include respond-to(desktop) {
+    padding: 0 10rem;
+  }
 }
