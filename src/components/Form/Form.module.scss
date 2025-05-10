@@ -53,4 +53,14 @@
     letter-spacing: $spacing-small;
     text-decoration: underline;
   }
+
+  &__error {
+    display: inline-block;
+    color: $red-rimac;
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.0125rem;
+  }
 }

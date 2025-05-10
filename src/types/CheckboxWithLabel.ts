@@ -1,7 +1,7 @@
 export interface CheckboxWithLabelProps {
   label: string;
+  checked: boolean;
   name?: string;
-  checked?: boolean;
   disabled?: boolean;
   required?: boolean;
   onChange?: (checked: boolean) => void;
