@@ -1,0 +1,33 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/utilities/mixins" as *;
+
+.planAndCoverage {
+  font-family: $font-secondary;
+
+  &__content {
+    margin-top: 6.5rem;
+    padding-bottom: 5rem;
+  }
+
+  &__choosePlan {
+    @include flex-center;
+    flex-direction: column;
+    margin-top: 3.5rem;
+
+    h2 {
+      width: 34rem;
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      font-weight: bold;
+      letter-spacing: $spacing-large;
+      line-height: 3rem;
+      text-align: center;
+    }
+    p {
+      font-size: 1.5rem;
+      font-weight: normal;
+      line-height: 1.5rem;
+      letter-spacing: $spacing-small;
+    }
+  }
+}

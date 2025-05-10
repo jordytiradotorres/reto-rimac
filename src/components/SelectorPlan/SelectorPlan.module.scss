@@ -1,0 +1,98 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/utilities/mixins" as *;
+
+.planSelector {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 2rem 0 1.25rem;
+
+  .planCard {
+    &__card {
+      width: 16rem;
+      position: relative;
+      background-color: $grey-0;
+      border: 0.1875rem solid transparent;
+      border-radius: 1.5rem;
+      padding: 1rem 1.5rem;
+      min-height: 13.25rem;
+      box-shadow: 0.0625rem 0.5rem 1rem rgba($shadow-card, 0.9);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      input[type="radio"] {
+        width: 1.5625rem;
+        height: 1.5625rem;
+        cursor: pointer;
+        accent-color: #2fbb5c;
+        border: 0.0625rem solid $grey-100;
+        border-radius: 50%;
+        appearance: none;
+        display: inline-block;
+        position: relative;
+
+        &:checked::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 0.75rem;
+          height: 0.75rem;
+          background-color: #2fbb5c;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    &__selected {
+      border-color: #141938;
+      box-shadow: 0.0625rem 0.5rem 1rem rgba(#aeacf359, 0.9);
+    }
+
+    &__radioWrapper {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+
+      input[type="radio"] {
+        width: 1.25rem;
+        height: 1.25rem;
+        cursor: pointer;
+        accent-color: #2fbb5c;
+      }
+    }
+
+    &__iconWrapper {
+      margin: 0.5rem 0;
+
+      img,
+      svg {
+        width: 3.125rem;
+        height: 3.125rem;
+      }
+    }
+
+    &__content {
+      h3 {
+        font-size: 1.25rem;
+        font-weight: 900;
+        line-height: 2.5rem;
+        color: $neutral-70;
+        margin-bottom: 0.5rem;
+        letter-spacing: $spacing-small;
+      }
+
+      p {
+        font-size: 0.875rem;
+        color: $neutral-70;
+        margin: 0;
+        font-weight: normal;
+        line-height: 1.25rem;
+      }
+    }
+  }
+}
