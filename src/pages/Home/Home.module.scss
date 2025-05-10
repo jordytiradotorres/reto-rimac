@@ -1,0 +1,23 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/utilities/mixins" as *;
+
+.home {
+  &__main {
+    display: block;
+    justify-content: flex-start;
+    gap: 8rem;
+
+    @include respond-to(tablet) {
+      display: flex;
+      padding-top: 2rem;
+    }
+  }
+
+  &__image {
+    display: none;
+
+    @include respond-to(tablet) {
+      display: block;
+    }
+  }
+}

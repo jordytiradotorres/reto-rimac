@@ -1,0 +1,66 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/utilities/mixins" as *;
+
+.inputDocument {
+  display: flex;
+  align-items: center;
+  border: 0.0625rem solid $grey-60;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  min-height: 3.5rem;
+  margin-bottom: 1rem;
+
+  &__selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    min-width: 8.75rem;
+    min-height: inherit;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+    outline: none;
+    border-right: thin solid $grey-60;
+
+    &:hover {
+      background-color: rgba($grey-60, 0.1);
+    }
+
+    span {
+      font-size: 0.875rem;
+      font-weight: bold;
+      color: $grey-100;
+    }
+
+    .input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      font-size: 1rem;
+      color: $grey-100;
+    }
+  }
+
+  &__placeholder {
+    color: $grey-60;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  &__inputContainer {
+    padding: 0.5rem 1rem;
+  }
+
+  &__input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: $grey-100;
+    font-weight: normal;
+  }
+}

@@ -1,0 +1,56 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/utilities/mixins" as *;
+
+.button {
+  display: inline-block;
+  font-weight: bold;
+  color: $grey-0;
+  background-color: $grey-100;
+  border: none;
+  border-radius: 3.333rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  text-align: center;
+  letter-spacing: $spacing-medium;
+
+  @include respond-to(tablet) {
+    width: auto;
+  }
+
+  &:hover {
+    background-color: rgba($grey-100, 0.9);
+  }
+}
+
+.small {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.25rem;
+}
+
+.medium {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+}
+
+.large {
+  padding: 1.125rem 1.5rem;
+  font-size: 181.125rem;
+}
+
+.primary {
+  background-color: $grey-100;
+}
+
+.secondary {
+  background-color: $secondary-color;
+}
+
+.disabled {
+  background-color: $grey-30;
+  cursor: not-allowed;
+
+  &:hover {
+    background-color: $grey-30;
+  }
+}

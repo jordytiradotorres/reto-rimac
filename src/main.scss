@@ -1,11 +1,11 @@
-@import "./styles/base/reset";
-@import "./styles/abstracts/variables";
-@import "./styles/utilities/mixins";
+@use "./styles/abstracts/variables" as *;
+@use "./styles/utilities/mixins" as *;
+@use "./styles/base/reset" as *;
 
 body {
   @include flex-column;
   min-height: 100vh;
-  font-family: "Br Sonoma", sans-serif;
+  font-family: $font-primary;
   padding: 0 1.5rem;
   max-width: 1360px;
   margin: 0 auto;

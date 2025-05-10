@@ -1,0 +1,56 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/utilities/mixins" as *;
+
+.form {
+  color: $grey-100;
+
+  @include respond-to(tablet) {
+    max-width: 352px;
+  }
+
+  &__header {
+    @include flex-center;
+    gap: 0.75rem;
+
+    img {
+      width: 8.5rem;
+      object-fit: cover;
+
+      @include respond-to(tablet) {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+
+  &__subtitle {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    letter-spacing: $spacing-small;
+    margin-bottom: 1.5rem;
+  }
+
+  &__separator {
+    @include respond-to(tablet) {
+      display: none;
+    }
+  }
+
+  &__term {
+    display: block;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: $spacing-small;
+    text-decoration: underline;
+  }
+}

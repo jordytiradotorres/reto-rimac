@@ -58,11 +58,10 @@
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: darken($bg-color, 10%);
+    background-color: rgba($bg-color, 0.8);
   }
 }
 
-// 6. Sombras (neumorfismo o estándar)
 @mixin box-shadow($level: 1) {
   @if $level == 1 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -73,7 +72,6 @@
   }
 }
 
-// 7. Animaciones básicas
 @mixin fade-in($duration: 0.3s) {
   opacity: 0;
   animation: fadeIn $duration ease-in forwards;
@@ -85,7 +83,6 @@
   }
 }
 
-// 8. Grid responsive
 @mixin grid-repeat-auto($min-size, $gap: 1rem) {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax($min-size, 1fr));

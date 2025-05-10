@@ -1,0 +1,19 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/utilities/mixins" as *;
+
+.separator {
+  background-color: $grey-30;
+  height: 0.00625rem;
+
+  &--small {
+    margin: 1.5rem 0;
+  }
+
+  &--medium {
+    margin: 2rem 0;
+  }
+
+  &--large {
+    margin: 3rem 0;
+  }
+}

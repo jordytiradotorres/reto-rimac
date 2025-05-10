@@ -1,0 +1,57 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/utilities/mixins" as *;
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+
+  &__icon {
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    white-space: nowrap;
+  }
+
+  &--primary {
+    background: linear-gradient(
+      106deg,
+      $primary-color 0%,
+      $secondary-color 100%
+    );
+    color: $grey-100;
+  }
+
+  &--secondary {
+    background-color: $secondary-color;
+    color: $grey-100;
+    border: 0.0625rem solid $secondary-color;
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: $primary-color;
+    border: 0.0625rem solid $primary-color;
+  }
+
+  &--small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  &--medium {
+    padding: 0.5rem 0.75rem;
+    font-size: 1.166rem;
+  }
+
+  &--large {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
