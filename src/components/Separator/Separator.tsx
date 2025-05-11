@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Separator.module.scss";
 
 interface SeparatorProps {
-  size: "small" | "medium" | "large";
+  size: "x-small" | "small" | "medium" | "large";
   className?: string;
 }
 
