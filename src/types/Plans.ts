@@ -16,3 +16,15 @@ export interface PlanCardProps {
   onSelect: (id: string) => void;
   name: string;
 }
+
+export interface PlanDetails {
+  id: string;
+  name: string;
+  price: number;
+  description: string[];
+  age: number;
+}
+
+export interface PlanList {
+  list: PlanDetails[];
+}

@@ -1,0 +1,113 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/utilities/mixins" as *;
+
+.cardDetails {
+  background-color: $grey-0;
+  border-radius: 1.5rem;
+  padding: 68px 32px 24px;
+  width: 18rem;
+  height: 42.93rem;
+  box-shadow: 0.0625rem 0.5rem 1rem rgba($shadow-card, 0.9);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0.0625rem 0.5rem 1rem rgba($shadow-card, 0.9);
+  }
+
+  &__badge {
+    background-color: #d1fae5;
+    color: #059669;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 1rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: $neutral-70;
+      line-height: 2rem;
+      letter-spacing: $spacing-small;
+    }
+    h4 {
+      font-size: 0.75rem;
+      font-weight: 900;
+      color: $neutral-60;
+      line-height: 1rem;
+      letter-spacing: $spacing-large;
+      text-transform: uppercase;
+      margin-top: 1.5rem;
+    }
+
+    & > div {
+      @include flex-column;
+    }
+  }
+
+  &__priceBefore {
+    font-size: 0.875rem;
+    font-weight: normal;
+    color: $neutral-60;
+    line-height: 1.2rem;
+    letter-spacing: $spacing-minus-small;
+    margin: 0.25rem 0;
+    text-decoration: line-through;
+  }
+
+  &__price {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: $neutral-70;
+    line-height: 1.5rem;
+    letter-spacing: $spacing-minus-small;
+  }
+
+  &__description {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    li {
+      list-style-type: disc;
+      margin-left: 1rem;
+      font-size: 1rem;
+      color: $neutral-70;
+      line-height: 1.5rem;
+      letter-spacing: $spacing-small;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__selectButton {
+    background-color: #ff0049;
+    color: #fff;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: auto;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #e60042;
+    }
+  }
+}

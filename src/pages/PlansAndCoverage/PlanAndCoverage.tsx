@@ -1,19 +1,29 @@
 import { useNavigate } from "react-router-dom";
-import { BackButton, Header, SelectorPlan, Stepper } from "../../components";
-import { useUser } from "../../hooks";
-import { useFormStore } from "../../store";
+import {
+  BackButton,
+  CardDetails,
+  Header,
+  SelectorPlan,
+  Stepper,
+} from "../../components";
+import { usePlans, useUser } from "../../hooks";
+import { useFormStore, usePlansStore } from "../../store";
 import { steps, type Plan } from "../../types";
-import styles from "./PlanAndCoverage.module.scss";
 
 import ProtectionLight from "../../assets/images/protectionLight.svg";
 import AddUserLight from "../../assets/images/addUserLight.svg";
+import styles from "./PlanAndCoverage.module.scss";
 
 export const PlanAndCoverage = () => {
   const navigate = useNavigate();
   const { user, loading, error } = useUser();
-  const formData = useFormStore((state) => state.formData);
+  const { plans } = usePlans();
 
-  const plans: Plan[] = [
+  const formData = useFormStore((state) => state.formData);
+  const selectedPlan = usePlansStore((state) => state.selectedPlan);
+  const setSelectedPlan = usePlansStore((state) => state.setSelectedPlan);
+
+  const plansChoose: Plan[] = [
     {
       id: "me",
       title: "Para mí",
@@ -33,7 +43,7 @@ export const PlanAndCoverage = () => {
   ];
 
   const handlePlanSelect = (selectedId: string) => {
-    console.log("Plan seleccionado:", selectedId);
+    setSelectedPlan(selectedId);
   };
 
   if (loading) return <h2>Loading...</h2>;
@@ -42,6 +52,10 @@ export const PlanAndCoverage = () => {
 
   const handleBack = () => {
     navigate(-1);
+  };
+
+  const handleSelectPlan = (id: string) => {
+    console.log("Plan seleccionado:", id);
   };
 
   return (
@@ -55,9 +69,17 @@ export const PlanAndCoverage = () => {
           <h2>Rocío ¿Para quién deseas cotizar?</h2>
           <p>Selecciona la opción que se ajuste más a tus necesidades.</p>
 
-          <SelectorPlan plans={plans} onPlanSelect={handlePlanSelect} />
+          <SelectorPlan plans={plansChoose} onPlanSelect={handlePlanSelect} />
         </section>
-        <section className={styles.planAndCoverage__plans}>planes</section>
+        <section className={styles.planAndCoverage__plans}>
+          {plans?.list.map((plan) => (
+            <CardDetails
+              key={plan.id}
+              plan={plan}
+              onSelect={handleSelectPlan}
+            />
+          ))}
+        </section>
       </main>
     </div>
   );

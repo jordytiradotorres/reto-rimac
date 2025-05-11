@@ -35,7 +35,7 @@
 
 .large {
   padding: 1.125rem 1.5rem;
-  font-size: 181.125rem;
+  font-size: 0.8rem 1.5rem;
 }
 
 .primary {
@@ -43,7 +43,12 @@
 }
 
 .secondary {
-  background-color: $secondary-color;
+  background-color: $red-rimac;
+  margin-top: auto;
+
+  &:hover {
+    background-color: rgba($red-rimac, 0.9);
+  }
 }
 
 .disabled {

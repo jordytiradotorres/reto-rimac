@@ -1,3 +1,3 @@
-export * from "./Home/Home";
-export * from "./PlansAndCoverage/PlanAndCoverage";
-export * from "./Summary/Summary";
+export * from "./Home";
+export * from "./PlansAndCoverage";
+export * from "./Summary";

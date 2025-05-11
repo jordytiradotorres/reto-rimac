@@ -19,7 +19,7 @@
       margin-bottom: 1rem;
       font-size: 2.5rem;
       font-weight: bold;
-      letter-spacing: $spacing-large;
+      letter-spacing: $spacing-minus-large;
       line-height: 3rem;
       text-align: center;
     }
@@ -29,5 +29,12 @@
       line-height: 1.5rem;
       letter-spacing: $spacing-small;
     }
+  }
+
+  &__plans {
+    @include flex-center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1.25rem;
   }
 }
