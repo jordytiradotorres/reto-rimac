@@ -18,13 +18,15 @@ export interface PlanCardProps {
 }
 
 export interface PlanDetails {
-  id: string;
   name: string;
   price: number;
   description: string[];
   age: number;
+  image: string;
 }
 
 export interface PlanList {
   list: PlanDetails[];
 }
+
+export const myAge = 32;

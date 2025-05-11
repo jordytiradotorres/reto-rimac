@@ -1,30 +1,46 @@
 import type { PlanDetails } from "../../types";
-import HomeLight from "../../assets/images/homeLight.svg";
-// import HospitalLight from "../../assets/images/hospitalLight.svg";
 import styles from "./CardDetails.module.scss";
 import { Separator } from "../Separator";
 import { Button } from "../Button";
+import { usePlansStore } from "../../store";
+import { getPlanImage } from "../../utils";
 
 interface PlanCardProps {
   plan: PlanDetails;
-  onSelect: (id: string) => void;
+  onSelect: (plan: PlanDetails) => void;
 }
 
 export const CardDetails = ({ plan, onSelect }: PlanCardProps) => {
+  const selectedPlan = usePlansStore((state) => state.selectedPlan);
+
   return (
     <div className={styles.cardDetails}>
-      {/* {plan.badge && <div className={styles.badge}>{plan.badge}</div>} */}
-
       <div className={styles.cardDetails__header}>
         <div>
           <h3>{plan.name}</h3>
           <h4>Costo del plan</h4>
-          <span className={styles.cardDetails__priceBefore}>$39 antes</span>
-          <span className={styles.cardDetails__price}>
-            ${plan.price.toFixed(2)} al mes
+          {selectedPlan !== "me" && selectedPlan !== null && (
+            <span className={styles.cardDetails__priceBefore}>
+              ${plan.price.toFixed(2)} antes
+            </span>
+          )}
+
+          <span
+            className={styles.cardDetails__price}
+            style={
+              selectedPlan === null || selectedPlan === "me"
+                ? { marginTop: "0.25rem" }
+                : {}
+            }
+          >
+            $
+            {selectedPlan !== "me" && selectedPlan !== null
+              ? (plan.price * 0.95).toFixed(2)
+              : plan.price.toFixed(2)}{" "}
+            al mes
           </span>
         </div>
-        <img src={HomeLight} alt="Home" />
+        <img src={getPlanImage(plan.name)} alt={plan.name} />
       </div>
 
       <Separator size="small" />
@@ -37,14 +53,12 @@ export const CardDetails = ({ plan, onSelect }: PlanCardProps) => {
         </ul>
       </div>
 
-      {/* <button
-        type="button"
-        className={styles.cardDetails__selectButton}
-        onClick={() => onSelect(plan.id)}
-      >
-        Seleccionar Plan
-      </button> */}
-      <Button label="Seleccionar Plan" size="large" variant="secondary" />
+      <Button
+        label="Seleccionar Plan"
+        size="large"
+        variant="secondary"
+        onClick={() => onSelect(plan)}
+      />
     </div>
   );
 };
