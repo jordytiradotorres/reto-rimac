@@ -2,14 +2,91 @@
 @use "../../styles/utilities/mixins" as *;
 
 .home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__gradients {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    padding: 0 1.5rem;
+
+    @include respond-to(tablet) {
+      padding: 0 10rem;
+    }
+
+    &--leftCenter {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      height: auto;
+      display: none;
+
+      @include respond-to(tablet) {
+        display: block;
+      }
+    }
+
+    &--leftBottom {
+      position: absolute;
+      left: 0;
+      bottom: 16%;
+      width: 400px;
+
+      @media (max-height: 740px) {
+        bottom: -2rem;
+      }
+
+      @include respond-to(tablet) {
+        display: none;
+      }
+    }
+
+    &--rightTop {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 400px;
+
+      @include respond-to(tablet) {
+        display: none;
+      }
+    }
+
+    &--rightCenter {
+      position: absolute;
+      top: 40%;
+      right: 0;
+      transform: translateY(-50%);
+      display: none;
+
+      @include respond-to(tablet) {
+        display: block;
+      }
+    }
+  }
+
   &__main {
     display: block;
     justify-content: flex-start;
     gap: 8rem;
+    padding: 0 1.5rem;
+    flex: 1;
+
+    @media (max-height: 740px) {
+      margin-bottom: 2rem;
+    }
 
     @include respond-to(tablet) {
       display: flex;
+      padding: 0 10rem;
       padding-top: 2rem;
+      max-width: 1360px;
     }
   }
 

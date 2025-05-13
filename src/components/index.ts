@@ -2,7 +2,7 @@ export * from "./BackButton";
 export * from "./Button";
 export * from "./CardDetails";
 export * from "./CheckboxWithLabel";
-export * from "./Footer.tsx";
+export * from "./Footer";
 export * from "./Form";
 export * from "./Header";
 export * from "./Input";
