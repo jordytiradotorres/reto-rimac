@@ -2,7 +2,7 @@ import { Input, InputDocument, CheckboxWithLabel } from "../../components";
 import type { FormFieldsProps } from "../../types";
 import styles from "./Form.module.scss";
 
-export const FormFields: React.FC<FormFieldsProps> = ({ formMethods }) => {
+export const FormFields = ({ formMethods }: FormFieldsProps) => {
   const {
     register,
     setValue,

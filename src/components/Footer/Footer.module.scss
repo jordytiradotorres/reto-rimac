@@ -11,8 +11,12 @@
   padding: 2rem 0;
   color: $grey-0;
   font-size: 0.75rem;
-  line-height: 20px;
+  line-height: 1.25rem;
   margin-top: auto;
+
+  @include respond-to(tablet) {
+    position: absolute;
+  }
 
   &__container {
     display: flex;
@@ -25,7 +29,7 @@
       justify-content: space-between;
       margin-right: auto;
       margin-left: auto;
-      max-width: 1040px;
+      max-width: 65rem;
     }
   }
 
@@ -37,7 +41,7 @@
 
   &__seperator {
     width: 90%;
-    height: 1px;
+    height: 0.0625rem;
     background-color: $grey-80;
     margin: 1.5rem 0;
 

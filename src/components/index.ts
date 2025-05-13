@@ -4,6 +4,7 @@ export * from "./CardDetails";
 export * from "./CheckboxWithLabel";
 export * from "./Footer";
 export * from "./Form";
+export * from "./Gradients";
 export * from "./Header";
 export * from "./Input";
 export * from "./InputDocument";

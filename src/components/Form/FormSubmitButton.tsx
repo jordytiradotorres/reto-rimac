@@ -1,9 +1,11 @@
 import { Button } from "../../components";
-import { isDisabled, type FormSubmitButtonProps } from "../../types";
+import { useFormLogic } from "../../hooks";
+import { type FormSubmitButtonProps } from "../../types";
 
 export const FormSubmitButton: React.FC<FormSubmitButtonProps> = ({
   watch,
 }) => {
+  const { isDisabled } = useFormLogic();
   return (
     <Button label="Cotiza aquí" size="small" disabled={isDisabled(watch)} />
   );

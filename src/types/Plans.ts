@@ -30,3 +30,13 @@ export interface PlanList {
 }
 
 export const myAge = 32;
+
+export interface CardDetailsProps {
+  plan: PlanDetails;
+  onSelect: (plan: PlanDetails) => void;
+}
+
+export interface PlansSectionProps {
+  plans: PlanDetails[];
+  onSelectPlan: (plan: PlanDetails) => void;
+}

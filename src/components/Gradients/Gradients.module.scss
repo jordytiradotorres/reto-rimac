@@ -1,0 +1,67 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/utilities/mixins" as *;
+
+.gradients {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  padding: 0 1.5rem;
+
+  @include respond-to(tablet) {
+    padding: 0 10rem;
+  }
+
+  &--leftCenter {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: auto;
+    display: none;
+
+    @include respond-to(tablet) {
+      display: block;
+    }
+  }
+
+  &--leftBottom {
+    position: absolute;
+    left: 0;
+    bottom: 16%;
+    width: 25rem;
+
+    @media (max-height: 46.25rem) {
+      bottom: -2rem;
+    }
+
+    @include respond-to(tablet) {
+      display: none;
+    }
+  }
+
+  &--rightTop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25rem;
+
+    @include respond-to(tablet) {
+      display: none;
+    }
+  }
+
+  &--rightCenter {
+    position: absolute;
+    top: 40%;
+    right: 0;
+    transform: translateY(-50%);
+    display: none;
+
+    @include respond-to(tablet) {
+      display: block;
+    }
+  }
+}

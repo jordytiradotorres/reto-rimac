@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { getPlans } from "../api";
 import { usePlansStore } from "../store";
 
@@ -10,17 +10,19 @@ export const usePlans = () => {
   const setLoading = usePlansStore((state) => state.setLoadingPlan);
   const setPlans = usePlansStore((state) => state.setPlans);
 
-  const fetchplans = async () => {
-    try {
-      setLoading(true);
-      const data = await getPlans();
-      setPlans(data);
-    } catch (err) {
-      setError("Error fetching plans");
-    } finally {
-      setLoading(false);
-    }
-  };
+  const fetchplans = useMemo(() => {
+    return async () => {
+      try {
+        setLoading(true);
+        const data = await getPlans();
+        setPlans(data);
+      } catch (err) {
+        setError("Error fetching plans");
+      } finally {
+        setLoading(false);
+      }
+    };
+  }, []);
 
   return { plans, loadingPlan, error, fetchplans };
 };

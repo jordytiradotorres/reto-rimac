@@ -1,59 +1,11 @@
-import type { PlanDetails } from "../../types";
-import styles from "./CardDetails.module.scss";
-import { Separator } from "../Separator";
-import { Button } from "../Button";
 import { usePlansStore } from "../../store";
+import { Separator, Button } from "..";
 import { getPlanImage } from "../../utils";
-import { Skeleton } from "../Skeleton";
+import type { CardDetailsProps } from "../../types";
+import styles from "./CardDetails.module.scss";
 
-interface PlanCardProps {
-  plan: PlanDetails;
-  onSelect: (plan: PlanDetails) => void;
-}
-
-export const CardDetails = ({ plan, onSelect }: PlanCardProps) => {
+export const CardDetails = ({ plan, onSelect }: CardDetailsProps) => {
   const selectedPlan = usePlansStore((state) => state.selectedPlan);
-  const isLoading = usePlansStore((state) => state.loadingPlan);
-
-  if (isLoading) {
-    return (
-      <div className={styles.cardDetails}>
-        <div style={{ marginBottom: "1rem" }}>
-          <Skeleton width="60%" height="1.5rem" borderRadius="8px" />
-          <Skeleton width="80%" height="1rem" borderRadius="8px" />
-          <Skeleton width="100%" height="7rem" borderRadius="8px" />
-        </div>
-        <div className={styles.cardDetails__description}>
-          <Skeleton
-            width="100%"
-            height="2rem"
-            borderRadius="16px"
-            style={{ marginBottom: "1.5rem" }}
-          />
-          <Skeleton
-            width="100%"
-            height="2rem"
-            borderRadius="16px"
-            style={{ marginBottom: "1.5rem" }}
-          />
-          <Skeleton
-            width="100%"
-            height="2rem"
-            borderRadius="16px"
-            style={{ marginBottom: "1.5rem" }}
-          />
-        </div>
-        <div>
-          <Skeleton
-            width="100%"
-            height="3rem"
-            borderRadius="8px"
-            style={{ marginTop: "8rem" }}
-          />
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className={styles.cardDetails}>

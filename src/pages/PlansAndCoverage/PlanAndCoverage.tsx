@@ -1,14 +1,10 @@
-import { useNavigate } from "react-router-dom";
 import { BackButton, Header, Stepper } from "../../components";
-import { useUser } from "../../hooks";
-import { usePlansStore } from "../../store";
-import { myAge, steps, type Plan, type PlanDetails } from "../../types";
-
-import ProtectionLight from "../../assets/images/protectionLight.svg";
 import AddUserLight from "../../assets/images/addUserLight.svg";
-import styles from "./PlanAndCoverage.module.scss";
 import { ChoosePlanSection, PlansSection } from "./";
-import { useEffect } from "react";
+import { usePlanAndCoverage } from "../../hooks";
+import { steps, type Plan } from "../../types";
+import ProtectionLight from "../../assets/images/protectionLight.svg";
+import styles from "./PlanAndCoverage.module.scss";
 
 const plansChoose: Plan[] = [
   {
@@ -30,34 +26,16 @@ const plansChoose: Plan[] = [
 ];
 
 export const PlanAndCoverage = () => {
-  const navigate = useNavigate();
-  const { error } = useUser();
-
-  const selectedPlan = usePlansStore((state) => state.selectedPlan);
-  const setSelectedPlan = usePlansStore((state) => state.setSelectedPlan);
-  const setPlanDetails = usePlansStore((state) => state.setPlanDetails);
-  const plans = usePlansStore((state) => state.plans);
-
-  useEffect(() => {
-    setSelectedPlan("");
-  }, []);
-
-  const filteredPlans = plans?.list.filter((plan) => plan.age >= myAge);
-
-  const handlePlanSelect = (selectedId: string) => {
-    setSelectedPlan(selectedId);
-  };
+  const {
+    selectedPlan,
+    filteredPlans,
+    error,
+    handleBack,
+    handlePlanSelect,
+    handleSelectPlan,
+  } = usePlanAndCoverage();
 
   if (error) return <p>{error}</p>;
-
-  const handleBack = () => {
-    navigate(-1);
-  };
-
-  const handleSelectPlan = (plan: PlanDetails) => {
-    setPlanDetails(plan);
-    navigate("/summary");
-  };
 
   return (
     <div className={styles.planAndCoverage}>

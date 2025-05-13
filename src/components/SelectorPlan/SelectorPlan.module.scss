@@ -27,7 +27,7 @@
         width: 1.5625rem;
         height: 1.5625rem;
         cursor: pointer;
-        accent-color: #2fbb5c;
+        accent-color: $green-radio;
         border: 0.0625rem solid $grey-100;
         border-radius: 50%;
         appearance: none;
@@ -42,15 +42,15 @@
           transform: translate(-50%, -50%);
           width: 0.75rem;
           height: 0.75rem;
-          background-color: #2fbb5c;
+          background-color: $green-radio;
           border-radius: 50%;
         }
       }
     }
 
     &__selected {
-      border-color: #141938;
-      box-shadow: 0.0625rem 0.5rem 1rem rgba(#aeacf359, 0.9);
+      border-color: $neutral-70;
+      box-shadow: 0.0625rem 0.5rem 1rem rgba($grey-60, 0.9);
     }
 
     &__radioWrapper {
@@ -62,7 +62,7 @@
         width: 1.25rem;
         height: 1.25rem;
         cursor: pointer;
-        accent-color: #2fbb5c;
+        accent-color: $green-radio;
       }
     }
 
