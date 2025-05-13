@@ -9,5 +9,6 @@ export * from "./Input";
 export * from "./InputDocument";
 export * from "./SelectorPlan";
 export * from "./Separator";
+export * from "./Skeleton";
 export * from "./Stepper";
 export * from "./Tag";

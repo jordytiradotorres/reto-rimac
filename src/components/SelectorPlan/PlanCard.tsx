@@ -1,9 +1,14 @@
+import { usePlans } from "../../hooks";
 import type { PlanCardProps } from "../../types";
 import styles from "./SelectorPlan.module.scss";
 
 export const PlanCard = ({ plan, selected, onSelect, name }: PlanCardProps) => {
-  const handleChange = () => {
+  const { fetchplans } = usePlans();
+
+  const handleChange = async () => {
     onSelect(plan.id);
+    console.log("hice click");
+    await fetchplans();
   };
 
   return (

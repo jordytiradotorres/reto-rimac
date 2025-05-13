@@ -3,3 +3,9 @@ export interface User {
   lastName: string;
   birthDay: string;
 }
+
+export const initialValuesUser: User = {
+  name: "",
+  lastName: "",
+  birthDay: "",
+};

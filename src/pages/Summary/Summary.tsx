@@ -9,8 +9,7 @@ export const Summary = () => {
   const navigate = useNavigate();
 
   const formData = useFormStore((state) => state.formData);
-  const userName = useUserStore((state) => state.user);
-  const userLastName = useUserStore((state) => state.lastName);
+  const user = useUserStore((state) => state.user);
   const planDetails = usePlansStore((state) => state.planDetails);
 
   const handleBack = () => {
@@ -32,7 +31,7 @@ export const Summary = () => {
           <div className={styles.summary__user}>
             <img src={Family} alt="Familia" />
             <h2>
-              {userName} {userLastName}
+              {user?.name} {user?.lastName}
             </h2>
           </div>
 

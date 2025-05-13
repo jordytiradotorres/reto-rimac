@@ -1,15 +1,24 @@
 import { create } from "zustand";
+import type { User } from "../types";
 
 interface UserStore {
-  user: string | null;
+  user: User | null;
+  name: string | null;
   lastName: string | null;
-  setName: (user: string) => void;
+  isLoadingUser: boolean;
+  setIsLoadingUser: (loading: boolean) => void;
+  setName: (name: string) => void;
   setLastName: (lastName: string) => void;
+  setUser: (user: User) => void;
 }
 
 export const useUserStore = create<UserStore>((set) => ({
   user: null,
+  name: null,
   lastName: null,
-  setName: (user) => set({ user }),
+  isLoadingUser: false,
+  setIsLoadingUser: (isLoadingUser) => set({ isLoadingUser }),
+  setName: (name) => set({ name }),
   setLastName: (lastName) => set({ lastName }),
+  setUser: (user) => set({ user }),
 }));

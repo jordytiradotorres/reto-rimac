@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { BackButton, Header, Stepper } from "../../components";
-import { usePlans, useUser } from "../../hooks";
+import { useUser } from "../../hooks";
 import { usePlansStore } from "../../store";
 import { myAge, steps, type Plan, type PlanDetails } from "../../types";
 
@@ -8,6 +8,7 @@ import ProtectionLight from "../../assets/images/protectionLight.svg";
 import AddUserLight from "../../assets/images/addUserLight.svg";
 import styles from "./PlanAndCoverage.module.scss";
 import { ChoosePlanSection, PlansSection } from "./";
+import { useEffect } from "react";
 
 const plansChoose: Plan[] = [
   {
@@ -30,11 +31,16 @@ const plansChoose: Plan[] = [
 
 export const PlanAndCoverage = () => {
   const navigate = useNavigate();
-  const { user, loading, error } = useUser();
-  const { plans } = usePlans();
+  const { error } = useUser();
 
+  const selectedPlan = usePlansStore((state) => state.selectedPlan);
   const setSelectedPlan = usePlansStore((state) => state.setSelectedPlan);
   const setPlanDetails = usePlansStore((state) => state.setPlanDetails);
+  const plans = usePlansStore((state) => state.plans);
+
+  useEffect(() => {
+    setSelectedPlan("");
+  }, []);
 
   const filteredPlans = plans?.list.filter((plan) => plan.age >= myAge);
 
@@ -42,9 +48,7 @@ export const PlanAndCoverage = () => {
     setSelectedPlan(selectedId);
   };
 
-  if (loading) return <h2>Loading...</h2>;
   if (error) return <p>{error}</p>;
-  if (!user) return <p>No user data</p>;
 
   const handleBack = () => {
     navigate(-1);
@@ -62,14 +66,15 @@ export const PlanAndCoverage = () => {
       <main className={styles.planAndCoverage__content}>
         <BackButton onClick={handleBack} />
         <ChoosePlanSection
-          userName={user.name}
           plans={plansChoose}
           onPlanSelect={handlePlanSelect}
         />
-        <PlansSection
-          plans={filteredPlans || []}
-          onSelectPlan={handleSelectPlan}
-        />
+        {selectedPlan && (
+          <PlansSection
+            plans={filteredPlans || []}
+            onSelectPlan={handleSelectPlan}
+          />
+        )}
       </main>
     </div>
   );

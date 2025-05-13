@@ -6,4 +6,5 @@ export interface ButtonProps {
   variant?: variants;
   disabled?: boolean;
   onClick?: () => void;
+  isLoading?: boolean;
 }

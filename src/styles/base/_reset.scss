@@ -44,7 +44,7 @@ textarea {
   margin: 0;
   border: none;
   background: none;
-  appearance: none; // Elimina estilos nativos en iOS/Safari
+  appearance: none;
 }
 
 a {
@@ -75,7 +75,7 @@ textarea {
 button {
   cursor: pointer;
   &:focus {
-    outline: 2px solid transparent; // Mejor para accesibilidad
+    outline: 2px solid transparent;
   }
 }
 

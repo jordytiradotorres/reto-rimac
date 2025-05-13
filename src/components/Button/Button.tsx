@@ -8,13 +8,18 @@ export const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   disabled = false,
   onClick,
+  isLoading = false,
 }) => {
   const buttonClass = `${styles.button} ${styles[size]} ${styles[variant]} ${
-    disabled && styles.disabled
-  }`;
+    disabled ? styles.disabled : ""
+  }  ${isLoading ? styles.isLoading : ""}`;
 
   return (
-    <button className={buttonClass} onClick={onClick}>
+    <button
+      className={buttonClass}
+      onClick={onClick}
+      disabled={disabled || isLoading}
+    >
       {label}
     </button>
   );

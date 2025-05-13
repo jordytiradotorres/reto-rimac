@@ -24,7 +24,9 @@ export const Form = () => {
 
   const onSubmit = (data: FormValues) => {
     setFormData(data);
-    navigate("/plans");
+    setTimeout(() => {
+      navigate("/plans");
+    }, 0);
   };
 
   return (

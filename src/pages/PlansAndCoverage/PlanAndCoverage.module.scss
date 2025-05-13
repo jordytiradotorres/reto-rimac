@@ -3,16 +3,31 @@
 
 .planAndCoverage {
   font-family: $font-secondary;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   &__content {
     margin-top: 2.5rem;
+    padding: 0 1.5rem;
     padding-bottom: 5rem;
+
+    @include respond-to(tablet) {
+      padding: 0 10rem;
+      padding-bottom: 5rem;
+      max-width: 85rem;
+    }
   }
 
   &__choosePlan {
     @include flex-center;
     flex-direction: column;
     margin-top: 3.5rem;
+    padding: 0 1.5rem;
+
+    @include respond-to(tablet) {
+      max-width: 85rem;
+    }
 
     h2 {
       width: 34rem;
@@ -36,5 +51,10 @@
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 1.25rem;
+  }
+
+  &__skeleton {
+    display: flex;
+    align-items: center;
   }
 }
